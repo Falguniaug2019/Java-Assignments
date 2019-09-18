@@ -1,0 +1,235 @@
+
+1)Create abstract base class "Game" with 'play()' as abstract method.
+From that derive following classes.
+Football,Cricket,Tennis
+Create a class called as "GamesDemo" (public class)
+inside a main method create an array of "Game" (3 elements)
+Store objects of Football,Cricket and Tennis respectively.
+Now traverse the array and call that Cricket's play() method.
+
+
+
+package falguni;
+
+public class GameDemo1 
+{
+
+	public static void main(String[] args) 
+	{
+		Game arr[]=new Game[3];
+		arr[0]=new Football();
+		arr[1]=new Cricket();
+		arr[2]=new Tennis();
+		
+		for(int i=0;i<arr.length;i++)
+		{
+			if(arr[i] instanceof Cricket )
+			{
+				arr[i].play();
+			}
+		}
+			
+		
+
+	}
+
+}
+
+abstract class Game 
+{
+	abstract void play();
+}
+
+class Football extends Game
+{
+
+	
+	void play() 
+	{
+		System.out.println("Football");
+	}
+	
+}
+
+class Cricket extends Game
+{
+
+	
+	void play() 
+	{
+		System.out.println("Cricket");
+	}
+	
+}
+
+class Tennis extends Game
+{
+
+	
+	void play() 
+	{
+		System.out.println("Tennis");
+	}
+	
+}
+
+
+
+
+
+
+..............................
+
+
+
+2) define your exception class by name "MyArithException"
+(MyArithException.java)
+define class "Calculator"   (Calculator.java)
+In this class define a function,which will accept an int and return double of it.
+e.g int caldouble(int)
+This function will check an int which is passed to it
+It will throw exception if 0 is passed or negative passed
+in case of 0 caller of this method should get error message
+"Zero not allowed" 
+in case of negative caller of this method should get error message
+"negative not allowed"
+In case of positive value it should simply return the double value.
+
+Now define class "MyCalcApp" (MyCalcApp.java)
+In this class you accept a number from user and pass that no. to
+caldouble() method which is mentioned above.
+
+
+
+
+import java.util.*;
+public class Calculator 
+{
+	int caldouble(int a) throws MyArithException
+	{
+		if(a==0)
+		{
+			throw new MyArithException("zero not alloweD");
+		}
+		else if(a<0)
+		{
+			throw new MyArithException("Negative not alloweD");
+		}
+		else
+		return 2*a;
+	}
+
+	public static void main(String[] args) 
+	{
+		Calculator ref=new Calculator();
+		int x=1;
+	while(true)
+		{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the no. ");
+		int a=sc.nextInt();
+		try
+		{
+			int no=ref.caldouble(a);
+			System.out.println(no);
+		}
+		catch(MyArithException m)
+		{
+			System.out.println(m);
+		}
+		System.out.println("Executed");
+		System.out.println("Enter 0 to quit ");
+		x=sc.nextInt();
+		if(x==0)
+		{
+			System.out.println("Bye ");
+			System.exit(0);
+		}
+	}
+	
+	}
+}
+
+class MyArithException extends Exception
+{
+	MyArithException(String msg)
+	{
+		super(msg);
+	}
+}
+
+
+
+.................................
+
+
+3)create a package called "course"
+In this package create three classes
+a) Dac    with methods  term1()  and term2()
+b) PreDac with  method  cet()
+c) Basic   with method  finalTest()
+
+Now write application called  "VitaApp" in which call all the methods  of the above mentioned classes.
+
+
+
+
+class VitaApp 
+{
+	void term1()
+	{
+		System.out.println("in term1");
+	}
+	void term2()
+	{
+		System.out.println("in term2");
+	}
+
+}
+
+class PreDac
+{
+	void cet()
+	{
+		System.out.println("course for enterence of cdac");
+	}
+}
+
+class Basic
+{
+	void finaltest()
+	{
+		System.out.println("finaltest");
+	}
+}
+
+public class Dac
+{
+	public static void main(String args[])
+	{
+		VitaApp v=new VitaApp();
+		PreDac p=new PreDac();
+		Basic c=new Basic();
+		v.term1();
+		v.term2();
+		p.cet();
+		c.finaltest();
+		
+	}
+}
+
+
+
+...............................
+
+
+
+
+
+
+
+
+
+
+
+
